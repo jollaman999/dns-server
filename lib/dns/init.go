@@ -7,7 +7,7 @@ import (
 )
 
 func Init() {
-	dns.HandleFunc("service.", handleDNSRequest)
+	dns.HandleFunc(".", handleDNSRequest)
 
 	err := parseHostsListFile()
 	if err != nil {
