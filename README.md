@@ -23,7 +23,7 @@ Respond to A records based on host list file.
 - The configuration file must be placed in one of the following directories.
     - .dns-server/conf directory under user's home directory
     - 'conf' directory where running the binary
-    - 'conf' directory where placed in the path of 'CMCICADA_ROOT' environment variable
+    - 'conf' directory where placed in the path of 'DNS_SERVER_ROOT' environment variable
 - Configuration options
   - host_list_file : Path of the host list file.
   - listen
