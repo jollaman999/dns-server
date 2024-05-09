@@ -1,9 +1,9 @@
 package main
 
 import (
+	"dns-server/common"
 	"dns-server/lib/config"
 	"dns-server/lib/dns"
-	"github.com/cloud-barista/cm-honeybee/common"
 	"github.com/jollaman999/utils/logger"
 	"github.com/jollaman999/utils/syscheck"
 	"log"
