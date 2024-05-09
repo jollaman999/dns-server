@@ -6,11 +6,8 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: dns-server:${TAG:-latest}
-    environment:
-      - TZ=Asia/Seoul
     entrypoint: /docker-entrypoint.sh
     volumes:
       - ./docker-entrypoint.sh:/docker-entrypoint.sh:rw
       - ./conf:/conf:ro
-      - /etc/localtime:/etc/localtime:ro
     network_mode: "host"
