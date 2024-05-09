@@ -6,7 +6,7 @@ Respond to A records based on host list file.
 
 ## How to run
 
-* Create a host list file. This file is similar to the /etc/hosts file.
+* Create a host list file in ./conf/hosts. This file is similar to the /etc/hosts file.
    ```shell
    test.service 192.168.0.2
    test.domain 192.168.0.3
