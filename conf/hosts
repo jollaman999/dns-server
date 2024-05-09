@@ -1,3 +1,5 @@
 test.service 192.168.0.2
-test.domain 192.168.0.3
+test1.domain 192.168.0.3
+test2.domain 192.168.0.4
+sub.test2.domain 192.168.0.5
 some.test.domain 192.168.0.4

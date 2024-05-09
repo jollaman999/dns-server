@@ -8,7 +8,7 @@ GOPROXY_OPTION := GOPROXY=direct GOSUMDB=off
 GO_COMMAND := ${GOPROXY_OPTION} go
 GOPATH := $(shell go env GOPATH)
 
-.PHONY: all dependency lint test race coverage coverhtml gofmt update build run clean help
+.PHONY: all dependency lint test race coverage coverhtml gofmt update build run run_docker stop_docker clean help
 
 all: build
 
@@ -82,6 +82,20 @@ run: ## Run the built binary
 	    $(MAKE) build; \
 	  fi
 	@cp -RpPf conf cmd/${MODULE_NAME}/ && ./cmd/${MODULE_NAME}/${MODULE_NAME}* || echo "Trying with sudo..." && sudo ./cmd/${MODULE_NAME}/${MODULE_NAME}*
+
+run_docker: ## Run the built binary within Docker
+	@git diff > .diff_current
+	@STATUS=`diff .diff_last_build .diff_current 2>&1 > /dev/null; echo $$?` && \
+	  GIT_HASH_MINE=`git rev-parse HEAD` && \
+	  GIT_HASH_LAST_BUILD=`cat .git_hash_last_build 2>&1 > /dev/null | true` && \
+	  if [ "$$STATUS" != "0" ] || [ "$$GIT_HASH_MINE" != "$$GIT_HASH_LAST_BUILD" ]; then \
+	    $(MAKE) build; \
+	  fi
+	@cp -pPf ./cmd/${MODULE_NAME}/${MODULE_NAME} ./
+	@docker compose up -d
+
+stop_docker: ## Stop the Docker container
+	@docker compose down
 
 clean: ## Remove previous build
 	@echo Cleaning build...

@@ -18,6 +18,11 @@ Respond to A records based on host list file.
    make run
    ```
 
+* Or build and run binary within Docker
+   ```shell
+   make run_docker
+   ```
+
 ## About configuration file
 - Configuration file name is 'dns-server.yaml'
 - The configuration file must be placed in one of the following directories.
