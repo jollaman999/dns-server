@@ -53,6 +53,8 @@ func parseQuery(m *dns.Msg) {
 				if err == nil {
 					m.Answer = append(m.Answer, rr)
 				}
+			} else {
+				m.Rcode = dns.RcodeNameError
 			}
 		}
 	}
