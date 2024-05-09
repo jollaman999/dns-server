@@ -1,0 +1,4 @@
+dns-server:
+    host_list_file: ./conf/hosts
+    listen:
+        port: 53

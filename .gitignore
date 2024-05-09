@@ -1,0 +1,9 @@
+coverage.out
+vendor
+.idea/
+.vscode/
+
+.diff_*
+.git_*
+
+*.log
